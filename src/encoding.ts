@@ -123,9 +123,12 @@ export function encodePath(text: string | number): string {
  * slash (`/`) character.
  *
  * @param text - string to encode
- * @returns encoded string
+ * @returns encoded string or a empty sting if text is undefined
  */
 export function encodeParam(text: string | number): string {
+  if (typeof text === 'undefined') {
+    return ''
+  }
   return encodePath(text).replace(SLASH_RE, '%2F')
 }
 
